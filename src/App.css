@@ -1,38 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;300;700&display=swap');
+
+:root {
+  --clr-neon: hsl(317, 100%, 54%);
+  --clr-bg: hsl(323, 21%, 16%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--clr-bg);
+  color: var(--clr-neon);
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.fant-text {
+  padding: 10%;
+  height: 50vh;
+  font-size: 3vh;
+  color: thistle;
+  font-weight: 300;
+  contain: content;
+  margin-bottom: 5%;
+  overflow-y: auto;
+}
+
+.neon-button {
+  font-size: 2rem;
+
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  background: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+
+  text-shadow:
+          0 0 .125em hsl(0, 0%, 50%),
+          0 0 .25em currentColor ;
+
+  box-shadow: 0 0 0.5em 0 var(--clr-neon);
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon);
+  position: relative;
+  transition: background-color 100ms linear;
+}
+
+.neon-button::before {
   pointer-events: none;
+  content: "";
+  position: absolute;
+  background: var(--clr-neon);
+  top: 110%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(0.9em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1.5em);
+  opacity: 0.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.neon-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  transition: opacity 100ms linear;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.neon-button:hover {
+  background-color: var(--clr-neon);
+  color: var(--clr-bg);
+  text-shadow: none;
 }
 
-.App-link {
-  color: #61dafb;
+.neon-button:hover::after {
+  opacity: 0.8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.neon-button:hover::before {
+  opacity: 1;
 }
+
