@@ -3,7 +3,7 @@ import './App.css';
 import {fantsData} from './Data/fants'
 
 function App() {
-    const [randomFant, setRandomFant] = useState("");
+    const [randomFant, setRandomFant] = useState("Крути!");
 
     const HandleClick = () => {
         const randomNum = Math.floor(Math.random() * fantsData.length);
