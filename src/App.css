@@ -25,14 +25,14 @@ body {
 }
 
 .fant-text {
-    padding: 20px 10%;
-    height: 50vh;
+    padding: 20px 5%;
+    height: 60vh;
     font-size: 4vh;
     color: thistle;
     font-weight: 300;
     contain: content;
-    margin-bottom: 10px;
-    /*overflow-y: auto;*/
+    margin-bottom: 20px;
+    overflow-y: auto;
 }
 
 @media only screen
@@ -40,6 +40,7 @@ and (max-device-width: 554px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait){
     .fant-text {
+        height: 70vh;
         font-size: 3vh;
     }
 }
